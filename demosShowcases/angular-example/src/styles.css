@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+@import '@JSBASH/core/dist/style.css';
+@import '@JSBASH/dashboard/dist/style.css';
+@import '@JSBASH/drag-drop/dist/style.css';
+@import '@JSBASH/progress-bar/dist/style.css';
