@@ -1,0 +1,22 @@
+{
+  "name": "@JSBASH-example/transloadit-markdown-bin",
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@JSBASH/core": "workspace:*",
+    "@JSBASH/dashboard": "workspace:*",
+    "@JSBASH/drop-target": "workspace:*",
+    "@JSBASH/image-editor": "workspace:*",
+    "@JSBASH/remote-sources": "workspace:*",
+    "@JSBASH/transloadit": "workspace:*",
+    "@JSBASH/webcam": "workspace:*",
+    "marked": "^4.0.18"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0"
+  },
+  "private": true,
+  "scripts": {
+    "start": "vite"
+  }
+}
