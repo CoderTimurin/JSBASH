@@ -1,0 +1,24 @@
+{
+  "name": "@JSBASH-example/vue2",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5050"
+  },
+  "dependencies": {
+    "@JSBASH/core": "workspace:*",
+    "@JSBASH/dashboard": "workspace:*",
+    "@JSBASH/drag-drop": "workspace:*",
+    "@JSBASH/progress-bar": "workspace:*",
+    "@JSBASH/transloadit": "workspace:*",
+    "@JSBASH/vue": "workspace:*",
+    "vue": "^2.6.14"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0",
+    "vite-plugin-vue2": "^2.0.1",
+    "vue-template-compiler": "^2.6.14"
+  }
+}
