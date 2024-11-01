@@ -1,0 +1,23 @@
+{
+  "name": "@JSBASH-example/vue3",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --port 5050"
+  },
+  "dependencies": {
+    "@JSBASH/core": "workspace:*",
+    "@JSBASH/dashboard": "workspace:*",
+    "@JSBASH/drag-drop": "workspace:*",
+    "@JSBASH/progress-bar": "workspace:*",
+    "@JSBASH/tus": "workspace:*",
+    "@JSBASH/vue": "workspace:*",
+    "vue": "^3.2.33"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^3.0.0",
+    "vite": "^4.0.0"
+  }
+}
