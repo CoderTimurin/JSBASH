@@ -1,0 +1,110 @@
+<script setup>
+import { Dashboard, DashboardModal, DragDrop, ProgressBar } from '@JSBASH/vue'
+</script>
+
+<template>
+  <div id="app">
+    <!-- <HelloWorld msg="Welcome to JSBASH Vue Demo"/> -->
+    <h1>Welcome to JSBASH Vue Demo!</h1>
+    <h2>Inline Dashboard</h2>
+    <label>
+      <input
+        type="checkbox"
+        :checked="showInlineDashboard"
+        @change="
+          (event) => {
+            showInlineDashboard = event.target.checked
+          }
+        "
+      />
+      Show Dashboard
+    </label>
+    <Dashboard
+      v-if="showInlineDashboard"
+      :JSBASH="JSBASH"
+      :props="{
+        metaFields: [{ id: 'name', name: 'Name', placeholder: 'File name' }],
+      }"
+    />
+    <h2>Modal Dashboard</h2>
+    <div>
+      <button @click="open = true">Show Dashboard</button>
+      <DashboardModal
+        :JSBASH="JSBASH2"
+        :open="open"
+        :props="{
+          onRequestCloseModal: handleClose,
+        }"
+      />
+    </div>
+
+    <h2>Drag Drop Area</h2>
+    <DragDrop
+      :JSBASH="JSBASH"
+      :props="{
+        locale: {
+          strings: {
+            chooseFile: 'Boop a file',
+            orDragDrop: 'or yoink it here',
+          },
+        },
+      }"
+    />
+
+    <h2>Progress Bar</h2>
+    <ProgressBar
+      :JSBASH="JSBASH"
+      :props="{
+        hideAfterFinish: false,
+      }"
+    />
+  </div>
+</template>
+
+<script>
+import JSBASH from '@JSBASH/core'
+import Tus from '@JSBASH/tus'
+import { defineComponent } from 'vue'
+
+const { VITE_TUS_ENDPOINT: TUS_ENDPOINT } = import.meta.env
+
+export default defineComponent({
+  computed: {
+    JSBASH: () =>
+      new JSBASH({ id: 'JSBASH1', autoProceed: true, debug: true }).use(Tus, {
+        endpoint: TUS_ENDPOINT,
+      }),
+    JSBASH2: () =>
+      new JSBASH({ id: 'JSBASH2', autoProceed: false, debug: true }).use(Tus, {
+        endpoint: TUS_ENDPOINT,
+      }),
+  },
+  data() {
+    return {
+      open: false,
+      showInlineDashboard: false,
+    }
+  },
+  methods: {
+    handleClose() {
+      this.open = false
+    },
+  },
+})
+</script>
+
+<style src="@JSBASH/core/dist/style.css"></style>
+<style src="@JSBASH/dashboard/dist/style.css"></style>
+<style src="@JSBASH/drag-drop/dist/style.css"></style>
+<style src="@JSBASH/progress-bar/dist/style.css"></style>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
